@@ -1,0 +1,38 @@
+---
+title: "Homework 0"
+author: "Ronit Gupta"
+format: html
+editor: visual
+---
+
+```{r}
+#| echo: false
+
+quadratic <- function(a, b, c) {
+  discriminant <- b^2 - 4*a*c
+  if (discriminant < 0) {
+    cat("No real number solutions.")
+  } else if (discriminant == 0) {
+    sol <- -b / (2*a)
+    cat("Real number solution is", sol, ".")
+  } else {
+    sol_1 <- (-b + sqrt(b^2 - 4*a*c)) / (2*a)
+    sol_2 <- (-b - sqrt(b^2 - 4*a*c)) / (2*a)
+    cat("Real number solutions are", sol_1, "and", sol_2, ".")
+  }
+}
+
+a <- 1
+b <- 3
+c <- 2
+
+cat("a =", a, ", b =", b, ", c =", c)
+
+quadratic(a, b, c)
+
+x <- seq(-5, 5, length=300)
+plot(x, a*x^2 + b*x + c, type = "l")
+abline(h=0, lty = 2)
+```
+
+Here we see the solutions to the quadratic equation $$ f(x) = ax^2 + bx + c = 0 $$ for a given a, b, and c, along with a plot of f(x) versus x for $$ x ∈ [-5, 5]. $$ The solutions to the equation are where the curve meets the x-axis.
